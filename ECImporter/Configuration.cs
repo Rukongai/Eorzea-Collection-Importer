@@ -1,8 +1,8 @@
-﻿using Dalamud.Configuration;
+/*using Dalamud.Configuration;
 using Dalamud.Plugin;
 using System;
 
-namespace SamplePlugin;
+namespace ECImporter;
 
 [Serializable]
 public class Configuration : IPluginConfiguration
@@ -15,6 +15,7 @@ public class Configuration : IPluginConfiguration
     // the below exist just to make saving less cumbersome
     public void Save()
     {
-        Plugin.PluginInterface.SavePluginConfig(this);
+        Service.pluginInterface.SavePluginConfig(this);
     }
 }
+*/

@@ -1,0 +1,11 @@
+{
+    "Author": "Rukongai",
+    "Name": "Eorzea Collection Importer",
+    "Punchline": "A tool for Glamourer",
+    "Description": "Allows you to import Eorzea Collection links into Glamourer.",
+    "ApplicableVersion": "any",
+    "Tags": [
+        "utility",
+        "glamour"
+    ]
+}
