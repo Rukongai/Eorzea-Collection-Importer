@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyVersion>7.0.1</AssemblyVersion>
+    <AssemblyVersion>7.0.3</AssemblyVersion>
   </PropertyGroup>
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 

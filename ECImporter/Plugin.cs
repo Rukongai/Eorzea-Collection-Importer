@@ -8,13 +8,16 @@ namespace ECImporter;
 public class ECImporterPlugin : IDalamudPlugin
 {
     private MainWindow MainWindow { get; init; }
+    private InstructionsWindow InstructionsWindow { get; init; }
     public readonly WindowSystem WindowSystem = new("ECImporter");
     private const string CommandName = "/ecimporter";
     public ECImporterPlugin(IDalamudPluginInterface pluginInterface)
     {
         Service.Initialize(pluginInterface);
         MainWindow = new MainWindow(this);
+        InstructionsWindow = new InstructionsWindow(this);
         WindowSystem.AddWindow(MainWindow);
+        WindowSystem.AddWindow(InstructionsWindow);
 
         Service.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
@@ -28,6 +31,7 @@ public class ECImporterPlugin : IDalamudPlugin
     {
         WindowSystem.RemoveAllWindows();
         MainWindow.Dispose();
+        InstructionsWindow.Dispose();
         Service.CommandManager.RemoveHandler(CommandName);
     }
 
@@ -37,6 +41,6 @@ public class ECImporterPlugin : IDalamudPlugin
     }
 
     private void DrawUI() => WindowSystem.Draw();
-
     public void ToggleMainUI() => MainWindow.Toggle();
+    public void ToggleInstructionsUI() => InstructionsWindow.Toggle();
 }

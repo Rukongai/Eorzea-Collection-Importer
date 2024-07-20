@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using Dalamud.Interface.Windowing;
+using Dalamud.Plugin.Services;
 using ImGuiNET;
 
 namespace ECImporter.Windows;
@@ -14,7 +15,7 @@ public class MainWindow : Window, IDisposable
     {
         SizeConstraints = new WindowSizeConstraints
         {
-            MinimumSize = new Vector2(375, 275),
+            MinimumSize = new Vector2(200, 75),
             MaximumSize = new Vector2(float.MaxValue, float.MaxValue)
         };
         ecimporter = plugin;
@@ -25,18 +26,15 @@ public class MainWindow : Window, IDisposable
     public override void Draw()
     {
         ImGui.Spacing();
-        ImGui.Text("⬤ Copy a url from Eorzea Collection to your clipboard");
-        ImGui.Text("⬤ Click the import button");
-        ImGui.Text("⬤ This will copy a share string for glamourer to your clipboard");
-        ImGui.Text("⬤ Open Glamourer and create a new design");
-        ImGui.Text("⬤ While holding the ctrl key, click on the the paste button in glamourer");
-        ImGui.Spacing();
-        ImGui.Text("⬤ Currently only 1 ring will import and this runs like shit.");
         if (ImGui.Button("Import"))
         {
             string ecurl = ImGui.GetClipboardText();
             _ = Scrape.GetEC(ecurl);
         }
-
+        ImGui.SameLine();
+        if (ImGui.Button("Instructions"))
+        {
+            ecimporter.ToggleInstructionsUI();
+        }
     }
 }
